@@ -20,3 +20,16 @@ export function posliZvire(zvire, veterina) {
 	console.log(`Zvíře ${zvire.jmeno} bylo přijato do veterinární ordinace ${veterina.nazev}.`);
     return true;
 }
+export function osetriZvire(zvire, veterina) {
+    const index = veterina.zvirata.indexOf(zvire);
+
+    if (index !== -1) {
+        veterina.zvirata.splice(index, 1);
+        console.log(`Zvíře ${zvire.jmeno} bylo ošetřeno a propuštěno z veterinární ordinace ${veterina.nazev}.`);
+        return true;
+    }
+
+    console.log(`Zvíře ${zvire.jmeno} nebylo nalezeno v veterinární ordinaci ${veterina.nazev}.`);
+    return false;
+}
+

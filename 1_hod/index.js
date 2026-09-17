@@ -22,7 +22,7 @@ import * as veterinaModule from "./veterina.js";
 */
 
 import { vytvorZvire } from "./zvire.js";
-import { vytvorVeterinu, posliZvire } from "./veterina.js";
+import { vytvorVeterinu, posliZvire, osetriZvire } from "./veterina.js";
 
 
 
@@ -43,3 +43,10 @@ posliZvire(kocka, veterina);
 console.log("\n=== Stav veteriny ===");
 console.log(`Ordinace: ${veterina.nazev}`);
 console.log(`Obsazenost: ${veterina.zvirata.length}/${veterina.pocetMist}`);
+
+console.log("\n=== Ošetření na Veterině ===");
+osetriZvire(pes, veterina);
+console.log(`${pes.jmeno} byl ošetřen a propuštěn z veterinární ordinace ${veterina.nazev}.`);
+console.log(`Obsazenost: ${veterina.zvirata.length}/${veterina.pocetMist}`);
+
+
