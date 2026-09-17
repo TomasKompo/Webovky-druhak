@@ -16,60 +16,30 @@
  -> posliZvire(zvire, veterina)
 */
 
-function vytvorZvire(zvire, jmeno, vek) {
-	const povolenaZvirata = ["Pes", "Kočka", "Křeček"];
+/*
+import * as zvireModule from "./zvire.js";
+import * as veterinaModule from "./veterina.js";
+*/
 
-	if (!povolenaZvirata.includes(zvire)) {
-        console.log("Neplatný druh zvířete. Povolené druhy jsou: Pes, Kočka, Křeček.");
-		return null;
-	}
+import { vytvorZvire } from "./zvire.js";
+import { vytvorVeterinu, posliZvire } from "./veterina.js";
 
-    if (zvire === "Pes") {
-        console.log("Haf");
-    }
-    if (zvire === "Kočka") {
-        console.log("Mňau");
-    }
-    if (zvire === "Křeček") {
-        console.log("Písk");
-    }
 
-	const jmenoBezMezer = jmeno.replaceAll(" ", "");
 
-	return {
-		druh: zvire,
-		jmeno: jmenoBezMezer,
-		vek: vek
-	};
-}
 
-function vytvorVeterinu(nazevVeteriny, pocetMist) {
-	return {
-		nazev: nazevVeteriny,
-		pocetMist: pocetMist,
-		zvirata: []
-	};
-}
-
-function posliZvire(zvire, veterina) {
-	const pocetZvirat = veterina.zvirata.length;
-
-	if (pocetZvirat >= veterina.pocetMist) {
-		console.log(`Veterinární ordinace ${veterina.nazev} je plná. Zvíře ${zvire.jmeno} nemůže být přijato.`);
-        
-	}
-
-	veterina.zvirata.push(zvire);
-	console.log(`Zvíře ${zvire.jmeno} bylo přijato do veterinární ordinace ${veterina.nazev}.`);
-    
-}
-
+console.log("=== Vytváření zvířat ===");
 const pes = vytvorZvire("Pes", "A z Or", 5);
 const kocka = vytvorZvire("Kočka", "Ra d u lina", 3);
 const veterina = vytvorVeterinu("Chci jenom penize", 1);
 
+console.log("\n=== Zvířata ===");
+console.log(`1. ${pes.druh} - ${pes.jmeno}, ${pes.vek} let`);
+console.log(`2. ${kocka.druh} - ${kocka.jmeno}, ${kocka.vek} roky`);
 
-console.log(pes);
-console.log(posliZvire(pes, veterina));
-console.log(posliZvire(kocka, veterina));
-console.log(veterina);
+console.log("\n=== Přijímání na veterinu ===");
+posliZvire(pes, veterina);
+posliZvire(kocka, veterina);
+
+console.log("\n=== Stav veteriny ===");
+console.log(`Ordinace: ${veterina.nazev}`);
+console.log(`Obsazenost: ${veterina.zvirata.length}/${veterina.pocetMist}`);
