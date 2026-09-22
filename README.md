@@ -45,3 +45,40 @@ Ve složce `1_hod` lze program spustit příkazem:
 ```bash
 node index.js
 ```
+
+## 2_hod
+
+Ve složce `2_hod` jsem navázal na předchozí hodinu a naučil se nové postupy pro práci s daty a asynchronním JavaScriptem.
+
+### Co jsem se naučil
+
+- používat metodu `forEach` pro procházení pole,
+- náhodně vybrat prvek pomocí `Math.random()` a `Math.floor()`,
+- používat metodu `reduce` jako alternativu k `forEach`,
+- načítat data z internetového API pomocí `fetch`,
+- zpracovat odpověď z API ve formátu JSON pomocí `response.json()`,
+- pracovat s asynchronními operacemi pomocí řetězení `.then()`,
+- zachytit chybu při načítání dat pomocí `try...catch`,
+- vytvořit projektový soubor `package.json` příkazem `npm init -y`.
+
+### Co jsem vytvořil
+
+- **Úkol 1:** Práce s polem jmen. Program vypíše všechna jména, spočítá jejich počet a náhodně vybere jedno jméno.
+- **Úkol 2:** Práce s polem objektů obsahujících státy, jejich zkratky a počet obyvatel. Program vypíše stát se zkratkou a spočítá celkový počet obyvatel.
+- **Úkol 3:** Načtení hodinové předpovědi počasí z API Open-Meteo. Program pomocí `fetch` získá časy a teploty a vypíše teploty do konzole.
+
+### Použité nové postupy
+
+V prvním úkolu jsem použil náhodný index vytvořený pomocí výrazu `Math.floor(Math.random() * pole.length)`.
+
+Ve druhém úkolu jsem použil metodu `forEach` pro zpracování objektů v poli. Stejný výsledek při sčítání obyvatel by bylo možné získat také pomocí metody `reduce`.
+
+Ve třetím úkolu se pomocí `fetch` načtou data z API. Odpověď se převede na JSON a z objektu se získají hodnoty `data.hourly.time` a `data.hourly.temperature_2m`.
+
+### Spuštění
+
+Ve složce `2_hod` lze program spustit příkazem:
+
+```bash
+node index.js
+```
