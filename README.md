@@ -82,3 +82,38 @@ Ve složce `2_hod` lze program spustit příkazem:
 ```bash
 node index.js
 ```
+
+## 3_hod
+
+Ve složce `3_hod` jsem navázal na předchozí hodinu a naučil se pracovat se soubory pomocí modulu `node:fs`.
+
+### Co jsem se naučil
+
+- importovat vestavěný modul `node:fs`,
+- zapisovat obsah do souboru pomocí `fs.writeFile`,
+- číst obsah souboru pomocí `fs.readFile`,
+- přidávat další obsah do souboru pomocí `fs.appendFile`,
+- přejmenovat soubor pomocí `fs.rename`,
+- pracovat s callbacky a kontrolovat chyby pomocí parametru `err`,
+- rozlišovat mezi synchronním a asynchronním prováděním operací,
+- opakovat operaci v pravidelném intervalu pomocí `setInterval`,
+- vytvořit jednoduchou simulaci logování do souboru.
+
+### Co jsem vytvořil
+
+- **Základní práce se souborem:** Program vytvoří soubor, zapíše do něj text, přečte jeho obsah, přidá další řádek a soubor přejmenuje.
+- **Simulace logování:** Program zapisuje do `log.txt` aktuální čas, úspěšné nebo neúspěšné přihlášení a jméno uživatele. Záznamy se nejdříve vytvoří stokrát za sebou a potom se přidávají každou sekundu.
+
+### Použité nové postupy
+
+V souboru `index.js` jsem si vyzkoušel asynchronní práci se soubory. Každá operace používá callback, který se spustí po dokončení operace nebo vypíše chybu.
+
+V souboru `ukol.js` jsem vytvořil funkce `zapis` a `pridej`. Pomocí podmíněného operátoru se podle hodnoty `uspech` vytvoří text o úspěšném nebo neúspěšném přihlášení.
+
+### Spuštění
+
+Ve složce `3_hod` lze základní ukázku spustit příkazem:
+
+```bash
+node index.js
+```
