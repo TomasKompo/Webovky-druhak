@@ -117,3 +117,45 @@ Ve složce `3_hod` lze základní ukázku spustit příkazem:
 ```bash
 node index.js
 ```
+
+## 4_hod
+
+Ve složce `4_hod` jsem navázal na předchozí hodinu a vytvořil svůj první webový server pomocí frameworku Express.
+
+### Co jsem se naučil
+
+- nainstalovat a používat balíček `express`,
+- vytvořit Express aplikaci pomocí `express()`,
+- načíst hodnoty z konfiguračního souboru `.env` pomocí `loadEnvFile`,
+- nastavit port serveru pomocí proměnné prostředí `PORT`,
+- používat middleware `express.urlencoded()` pro zpracování dat z formuláře,
+- vytvořit GET a POST routu pomocí `app.get()` a `app.post()`,
+- odeslat HTML soubor pomocí `res.sendFile()`,
+- získat data odeslaná z formuláře přes `req.body`,
+- automaticky restartovat server po změně kódu pomocí programu `nodemon`.
+
+### Co jsem vytvořil
+
+- **Express server:** Server se spustí na portu nastaveném v `.env` a po spuštění vypíše přihlášeného uživatele.
+- **Úvodní stránku:** GET požadavek na adresu `/` odešle soubor `public/templates/index.html`.
+- **Formulář:** Stránka obsahuje formulář pro zadání jména a příjmení. Po odeslání POST požadavku server údaje přečte a vypíše do konzole.
+
+### Použité nové postupy
+
+Pomocí Expressu jsem vytvořil server a nastavil jeho routy. Middleware `express.urlencoded({ extended: true })` převede data z HTML formuláře do objektu `req.body`.
+
+Konfigurační údaje, například port a uživatelské hodnoty, jsou uložené v souboru `.env`, aby nebyly přímo zapsané v kódu. Balíček `nodemon` umožňuje automatické znovuspuštění serveru po úpravě souboru.
+
+### Spuštění
+
+Ve složce `4_hod` lze server spustit příkazem:
+
+```bash
+node index.js
+```
+
+Pro automatické restartování při změně souborů lze použít:
+
+```bash
+nodemon index.js
+```
