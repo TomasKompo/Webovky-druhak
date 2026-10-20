@@ -159,3 +159,42 @@ Pro automatické restartování při změně souborů lze použít:
 ```bash
 nodemon index.js
 ```
+
+## 5_hod
+
+Ve složce `5_hod` jsem navázal na Express server a vytvořil jednoduchou registraci a přihlašování uživatelů s využitím databáze SQLite.
+
+### Co jsem se naučil
+
+- připojit SQLite databázi pomocí balíčku `sqlite3`,
+- vytvořit tabulku pomocí SQL příkazu `CREATE TABLE IF NOT EXISTS`,
+- ukládat uživatele do databáze pomocí `INSERT`,
+- vyhledávat uživatele pomocí `SELECT`,
+- používat parametrizované SQL dotazy s otazníky `?`,
+- hashovat hesla pomocí knihovny `bcrypt`,
+- porovnávat zadané heslo s hashem pomocí `bcrypt.compare`,
+- používat `async/await` při asynchronních operacích,
+- kontrolovat, jestli uživatel vyplnil všechna povinná pole,
+- vracet HTTP stavové kódy pomocí `res.status()`,
+- přesměrovat uživatele pomocí `res.redirect()`.
+
+### Co jsem vytvořil
+
+- **Databázi uživatelů:** V souboru `users.db` se vytvoří tabulka `users` se jménem uživatele a zahashovaným heslem.
+- **Registraci:** Na stránce `/register` uživatel vyplní jméno a heslo. Heslo se před uložením zahashuje pomocí `bcrypt`.
+- **Přihlášení:** Na stránce `/login` se vyhledá uživatel v databázi a ověří se zadané heslo.
+- **Stránky a routy:** Kořenová adresa `/` přesměruje na přihlášení a mezi registrací a přihlášením lze přecházet pomocí odkazů.
+
+### Použité nové postupy
+
+Při registraci se heslo neukládá přímo, ale jako hash vytvořený pomocí `bcrypt.hash`. Při přihlášení se zadané heslo porovná s uloženým hashem pomocí `bcrypt.compare`.
+
+Databázové dotazy používají parametry, například `WHERE username = ?`, což odděluje data od SQL příkazu. Server také kontroluje chybějící údaje a podle výsledku vrací například stav `400`, `401` nebo `500`.
+
+### Spuštění
+
+Ve složce `5_hod` lze server spustit příkazem:
+
+```bash
+npm start
+```
